@@ -72,6 +72,9 @@ VOLUME /data/db /data/configdb
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+
+COPY init_db.sh /docker-entrypoint-initdb.d/init_db.sh
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
